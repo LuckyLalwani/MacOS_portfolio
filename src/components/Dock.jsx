@@ -7,6 +7,7 @@ import useWindowStore from "../store/window";
 const Dock = () => {
     const {openWindow, closeWindow, windows} = useWindowStore();
 
+const Dock = () => {
     const dockRef = useRef(null);
 
     useGSAP(() =>{
@@ -65,6 +66,7 @@ const Dock = () => {
             openWindow(app.id);
         }
     }
+      }
 
   return (
     <section id="dock">
@@ -77,6 +79,7 @@ const Dock = () => {
                     data-tooltip-content = {name}
                     data-tooltip-delay-show = {150}
                     disabled ={!canOpen}
+                    disable ={!canOpen}
                     onClick={()=> toggleApp({id ,canOpen}) }>
                         <img src={`/images/${icon}`} alt={name} loading="lazy" 
                         className={canOpen ? '' : 'opacity-60'}/>
