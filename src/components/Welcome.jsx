@@ -1,6 +1,6 @@
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
-import { useState } from "react"
+import { useRef} from "react"
 
 const FONT_WEIGHTS = {
     subtitle: { min:100 , max:400, default:100},
@@ -9,8 +9,8 @@ const FONT_WEIGHTS = {
 
 const renderText =(text, className, baseWeight = 400)=>{
     return [...text].map((char,i) =>(
-        <span key ={i} className={className} style={{fontVariationSettings:`'wght'${baseWeight}`}} >
-            {char === "" ? "\U00A0" : char }
+        <span key ={i} className={className} style={{fontVariationSettings:`'wght' ${baseWeight}`}} >
+            {char === " " ? "\u00A0" : char }
         </span>
     ) )
 }
@@ -47,8 +47,8 @@ const setupTextHover = (container, type) => {
 }
 
 const Welcome = () => {
-    const titleRef = useState(null);
-    const subtitleRef = useState(null);
+    const titleRef = useRef(null);
+    const subtitleRef = useRef(null);
 
     useGSAP(()=>{
         const titleCleanup = setupTextHover(titleRef.current , 'title');

@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav>
         <div>
-            <img src="public/images/logo.svg" alt="logo" />
+            <img src="images/logo.svg" alt="logo" />
             <p className='font-bold '>Lucky's Portfolio</p>
 
             <ul>
@@ -24,7 +24,7 @@ const Navbar = () => {
                 ) )}
             </ul>
 
-            <time datetime="">{dayjs().format('ddd MMM D h:mm A')}</time>
+            <time>{dayjs().format('ddd MMM D h:mm A')}</time>
         </div>
     </nav>
   )
